@@ -1,0 +1,410 @@
+{
+    "form": {
+        "headerText": "Request An Absentee Ballot",
+        "submit": "Next",
+        "submitText": "You are one step away from casting your vote, click next to continue.",
+        "formStep": [
+        {
+            "-id": "1",
+            "headerText": "Let's Get Started",
+            "formSection": {
+            "-id": "1",
+              "fieldset": {
+                    "field": [
+                          {
+                            "-id": "fname",
+                            "-type": "string",
+                            "-required": "true",
+                            "-label": "First Name"
+                          },
+                          {
+                            "-id": "mname",
+                            "-type": "string",
+                            "-required": "false",
+                            "-label": "Middle Name"
+                          },
+                          {
+                            "-id": "lname",
+                            "-type": "string",
+                            "-required": "true",
+                            "-label": "Last Name",
+                            "-width": "2X"
+                          },
+                          {
+                            "-id": "sfx",
+                            "-type": "string",
+                            "-required": "false",
+                            "-label": "Suffix",
+                            "-width": "1X"
+                          },
+                          {
+                            "-id": "email",
+                            "-type": "string",
+                            "-required": "true",
+                            "-label": "Email Address",
+                            "-width": "2X"
+                          },
+                          {
+                            "-id": "step1zip",
+                            "-type": "numeric",
+                            "-required": "true",
+                            "-label": "ZIP Code",
+                            "-maxLength": "5",
+                            "-minLength": "5",
+                            "-width": "1X",
+                            "mask": "00000"
+                          }
+                        ]
+                    }
+                }
+            },
+            {
+                "-id": "2",
+                "-hidden": "true",
+                "-type": "confirm",
+                "headerText": "Confirm Information",
+                "headerText": "Home Address",
+                "source": "voterDB",
+                "pre": "Is the following information correct?",
+                "post": "By clicking correct, I confirm that the above information is complete and accurate.",
+                "confirmText": "Correct",
+                "editText": "Incorrect",
+                "formSection": {
+                    "-id": "1",
+                    "fieldset": {
+                        "field": [
+                          {
+                            "-id": "raddr1",
+                            "-type": "string",
+                            "-required": "true",
+                            "-label": "Street",
+                            "-width": "full"
+                          },
+                          {
+                            "-id": "raddr2",
+                            "-type": "string",
+                            "-required": "false",
+                            "-label": "Street2",
+                            "-width": "full"
+                          },
+                          {
+                            "-id": "city",
+                            "-type": "string",
+                            "-required": "true",
+                            "-label": "City",
+                            "-width": "2X"
+                          },
+                          {
+                            "-id": "rzip5",
+                            "-type": "numeric",
+                            "-required": "true",
+                            "-label": "ZIP Code",
+                            "-maxLength": "5",
+                            "-minLength": "5",
+                            "-width": "1X",
+                            "mask": "00000"
+                          },
+                          {
+                            "-id": "cust_county",
+                            "-type": "string",
+                            "-required": "true",
+                            "-label": "County",
+                            "-width": "2X"
+                          },
+                          {
+                            "-id": "cust_dob",
+                            "-type": "date",
+                            "-required": "true",
+                            "-label": "Date of Birth",
+                            "-width": "1X"
+                          }
+                        ]
+                      }
+                }
+            },
+            {
+              "-id": "3",
+              "-hidden": "true",
+              "headerText": "Voter Information",
+              "formSection": [
+              {
+                "-id": "1",
+                "fieldset": {
+                  "field": [
+                    {
+                      "-id":"cust_telephone_full",
+                      "-type":"phone",
+                      "-required":"true",
+                      "-label":"Phone Number",
+                      "-width":"half"
+                    },
+                    {
+                      "-id": "useMailingAddress",
+                      "-type": "checkbox",
+                      "-required": "true",
+                      "-width": "half",
+                      "-label": "My Mailing Address Is Different Than My Registration Address",
+                      "-triggers": {
+                        "2": "toggle"
+                      }
+                    }
+                  ]
+                  }
+                },
+                {
+                  "-id": "2",
+                  "-hidden": "true",
+                  "fieldset": {
+                    "field": [
+                      {
+                        "-id": "maddr1",
+                        "-type": "string",
+                        "-required": "true",
+                        "-label": "Street",
+                        "-width": "full"
+                      },
+                      {
+                        "-id": "maddr2",
+                        "-type": "string",
+                        "-label": "Street2",
+                        "-width": "full"
+                      },
+                      {
+                        "-id": "mcity",
+                        "-type": "string",
+                        "-required": "true",
+                        "-label": "City"
+                      },
+                      {
+                        "-id": "msta",
+                        "-type": "list",
+                        "-required": "true",
+                        "-label": "State",
+                        "-width": "1X",
+                        "listItems": {
+                          "listItem": [
+                            {
+                              "#Text": "AL",
+                              "-value": "AL"
+                            },
+                            {
+                              "#Text": "AK",
+                              "-value": "AK"
+                            },
+                            {
+                              "#Text": "AZ",
+                              "-value": "AZ"
+                            },
+                            {
+                              "#Text": "AR",
+                              "-value": "AR"
+                            },
+                            {
+                              "#Text": "CA",
+                              "-value": "CA"
+                            },
+                            {
+                              "#Text": "CO",
+                              "-value": "CO"
+                            },
+                            {
+                              "#Text": "CT",
+                              "-value": "CT"
+                            },
+                            {
+                              "#Text": "DE",
+                              "-value": "DE"
+                            },
+                            {
+                              "#Text": "DC",
+                              "-value": "DC"
+                            },
+                            {
+                              "#Text": "FL",
+                              "-value": "FL"
+                            },
+                            {
+                              "#Text": "GA",
+                              "-value": "GA"
+                            },
+                            {
+                              "#Text": "HI",
+                              "-value": "HI"
+                            },
+                            {
+                              "#Text": "ID",
+                              "-value": "ID"
+                            },
+                            {
+                              "#Text": "IL",
+                              "-value": "IL"
+                            },
+                            {
+                              "#Text": "IN",
+                              "-value": "IN"
+                            },
+                            {
+                              "#Text": "IA",
+                              "-value": "IA"
+                            },
+                            {
+                              "#Text": "KS",
+                              "-value": "KS"
+                            },
+                            {
+                              "#Text": "KY",
+                              "-value": "KY"
+                            },
+                            {
+                              "#Text": "LA",
+                              "-value": "LA"
+                            },
+                            {
+                              "#Text": "ME",
+                              "-value": "ME"
+                            },
+                            {
+                              "#Text": "MD",
+                              "-value": "MD"
+                            },
+                            {
+                              "#Text": "MA",
+                              "-value": "MA"
+                            },
+                            {
+                              "#Text": "MI",
+                              "-value": "MI"
+                            },
+                            {
+                              "#Text": "MN",
+                              "-value": "MN"
+                            },
+                            {
+                              "#Text": "MS",
+                              "-value": "MS"
+                            },
+                            {
+                              "#Text": "MO",
+                              "-value": "MO"
+                            },
+                            {
+                              "#Text": "MT",
+                              "-value": "MT"
+                            },
+                            {
+                              "#Text": "NE",
+                              "-value": "NE"
+                            },
+                            {
+                              "#Text": "NV",
+                              "-value": "NV"
+                            },
+                            {
+                              "#Text": "NH",
+                              "-value": "NH"
+                            },
+                            {
+                              "#Text": "NJ",
+                              "-value": "NJ"
+                            },
+                            {
+                              "#Text": "NM",
+                              "-value": "NM"
+                            },
+                            {
+                              "#Text": "NY",
+                              "-value": "NY"
+                            },
+                            {
+                              "#Text": "NC",
+                              "-value": "NC"
+                            },
+                            {
+                              "#Text": "ND",
+                              "-value": "ND"
+                            },
+                            {
+                              "#Text": "OH",
+                              "-value": "OH"
+                            },
+                            {
+                              "#Text": "OK",
+                              "-value": "OK"
+                            },
+                            {
+                              "#Text": "OR",
+                              "-value": "OR"
+                            },
+                            {
+                              "#Text": "PA",
+                              "-value": "PA"
+                            },
+                            {
+                              "#Text": "RI",
+                              "-value": "RI"
+                            },
+                            {
+                              "#Text": "SC",
+                              "-value": "SC"
+                            },
+                            {
+                              "#Text": "SD",
+                              "-value": "SD"
+                            },
+                            {
+                              "#Text": "TN",
+                              "-value": "TN"
+                            },
+                            {
+                              "#Text": "TX",
+                              "-value": "TX"
+                            },
+                            {
+                              "#Text": "UT",
+                              "-value": "UT"
+                            },
+                            {
+                              "#Text": "VT",
+                              "-value": "VT"
+                            },
+                            {
+                              "#Text": "VA",
+                              "-value": "VA"
+                            },
+                            {
+                              "#Text": "WA",
+                              "-value": "WA"
+                            },
+                            {
+                              "#Text": "WV",
+                              "-value": "WV"
+                            },
+                            {
+                              "#Text": "WI",
+                              "-value": "WI"
+                            },
+                            {
+                              "#Text": "WY",
+                              "-value": "WY"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "-id": "mzip5",
+                        "-type": "numeric",
+                        "-required": "true",
+                        "-label": "ZIP Code",
+                        "-maxLength": "5",
+                        "-minLength": "5",
+                        "-width": "1X",
+                        "mask": "00000"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,194 @@
+<cfmail from="gotv@prosperitypac.com" subject="Absentee Ballot application" to="#url.Email#" remove="true" server="smtp.postmarkapp.com" username="43a619df-47a9-45f0-83e6-9f003a81fe2b" password="43a619df-47a9-45f0-83e6-9f003a81fe2b" >
+				<cfmailparam file="#attachmentPath#" disposition="attachment">
+				<cfmailpart type="text" wraptext="74">#emailContent.firstName#
+
+Thank you for requesting your absentee ballot! 
+					
+Please make sure that after you print this application you:
+					<cfloop index="x" from="1" to="#arrayLen(emailContent.emailBullets)#">#emailContent.emailBullets[x]#
+					</cfloop>
+					
+#emailContent.mailingAddressHeader#
+#emailContent.mailingAddress#
+
+The application must be received by #emailContent.abDeadline# to apply to vote by mail for the #emailContent.electionDate# General Election.
+					
+Jon Black
+RNC Director of Voter Turnout
+			    </cfmailpart>
+			    <cfmailpart type="html">
+				<cfoutput><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>GOP | Contribution Email</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css' />
+    <style type="text/css">
+
+        /* ====== CUSTOM GLOBAL CLASSES ====== */
+
+        .content {width: 100%; max-width: 570px;}
+
+        /* ====== CUSTOM MEDIA QUERIES ====== */
+
+        @media screen and (max-device-width: 500px) {
+            body {
+                padding:50px 0px 60px 0px !important;
+            }
+            .hide-mobile {
+                display: none;
+            }
+            .mobile-left {
+                text-align: left;
+            }
+            .mobile-sm-font {
+                font-size:12px;
+            }
+            img##cta {
+                width:100% !important;
+            }
+            ##social-link-block {
+                padding:60px 0 60px 0 !important;
+            }
+        }
+
+    </style>
+
+</head>
+<body bgcolor="##ffffff" style="margin:0px;padding:0 0px 130px 0px;min-width: 100% !important;font-family:'Lato',sans-serif;font-size:20px;line-height: 28px;color:##464646;">
+
+    <!--  READ NOTES   
+
+    * You can replace the text under the 'New Text Line' as you need, to fit your specific email.
+    * If there are sections that are NOT needed, just highlight starting from the comment directly above it and end just before the comment directly below it and then delete.
+    * If you need to add a new section, let's say and new block of text, just copy a previous one. Starting from the 'New Text Line' comment above it grabbing everything below it ending just before the next comment. Then just paste that in the place you would like it to appear.
+ 
+     END NOTES  -->
+
+
+    <!--  Email Preview Text  -->
+    <div style="width:0;overflow:hidden;float:left;display:none;max-height:0px;visibility:hidden">
+        Thank you for requesting your absentee ballot.
+    </div>
+
+
+    <!--  Start: Email Body  -->
+    <table width="100%" bgcolor="##ffffff" border="0" cellpadding="0" cellspacing="0" style="padding:10px 20px 0px 20px; font-size:20px !important; line-height:28px !important; ">
+        <tr>
+            <td>
+                <table class="content" align="center" cellpadding="0" cellspacing="0" border="0" width="570" style="border-collapse: collapse;">
+
+                    <!-- Start : Logo -->
+                    <tr>
+                        <td style="padding: 0 30px 0;" align="center">
+                            <a href="http://www.gop.com">
+                                <img title="GOP" src="http://rncgotv.wpengine.com/wp-content/uploads/2014/09/logo-script.png" alt="GOP" style="display: block;" />
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- End : Logo -->
+
+                    <!-- Start : Email Body Copy -->
+                    <tr>
+                        <td style="padding:40px 0px 40px 0px;">
+                            <table border="0" cellpadding="0" class="tablebody" cellspacing="0" width="100%" >
+                                <tr>
+                                    <td>
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-size:18px !important;line-size:28px !important;letter-spacing:.5px;color:##464646;">
+                                            <!-- Recipients Name -->
+                                            <tr>
+                                                <td style="padding:0px 0px 15px 0px;">
+                                                    #emailContent.firstName#,
+                                                </td>
+                                            </tr>
+                                            <!-- New Text Line -->
+                                            <tr>
+                                                <td style="padding:0px 0px 15px 0px;">
+                                                    Thank you for requesting your absentee ballot.
+                                                </td>
+                                            </tr>
+                                            <!-- New List Block -->
+                                            <tr>
+                                                <td style="padding:0px 0px 15px 0px;">
+                                                    <!-- Unordered List -->
+                                                    Please make sure that, after you print this application, you:
+                                                    <ul style="margin: 0px 0px 0px 0px;">
+                                                        <cfloop index="x" from="1" to="#arrayLen(emailContent.emailBullets)#"><li style="margin:0px 0px 10px 0px;">#emailContent.emailBullets[x]#</li>
+														</cfloop>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <!-- New Text Line -->
+                                            <tr>
+                                                <td style="padding:0px 0px 15px 0px;">
+                                                    <p><strong>#emailContent.mailingAddressHeader#</strong></p>
+													<p>#emailContent.mailingAddress#</p>
+                                                </td>
+                                            </tr>
+                                            <!-- New Text Line -->
+                                            <tr>
+                                                <td style="padding:0px 0px 15px 0px;">
+                                                    The application must be received by #emailContent.abDeadline# to apply to vote by mail for the #emailContent.electionDate# General Election.
+                                                </td>
+                                            </tr>
+                                            <!-- New Text Line -->
+                                            <tr>
+                                                <td style="padding:0px 0px 15px 0px;">
+                                                    With all that's at stake in this election, your support will make a difference. 
+                                                </td>
+                                            </tr>
+                                            <!-- New Text Line -->
+                                            <tr>
+                                                <td style="padding:0px 0px 15px 0px;">
+                                                    Encourage your friends and family to vote using our new Facebook app. Pledge to vote and encourage your friends on Facebook to join you here. <cfif structKeyExists(emailContent, "shareURL")> at #replace(emailContent.shareURL, "gotv.prosperitypac.com", "rncgotv.wpengine.com", "all")#</cfif>
+                                                </td>
+                                            </tr>
+                                            <!-- New Text Line -->
+                                            <tr>
+                                                <td style="padding:0px 0px 15px 0px;">
+                                                    Thanks,
+                                                </td>
+                                            </tr>
+                                            <!-- Signers Name -->
+                                            <tr>
+                                                <td style="padding:0px 0px 15px 0px;">
+                                                    Jon Black
+                                                    <br/>
+                                                    RNC Director of Voter Turnout
+                                                </td>
+                                            </tr>
+                                            <!-- Postscript -->
+                                            <tr>
+                                                <td style="padding:0px 0px 15px 0px;">
+                                                    You can also see a full list of mailing addresses here <a href="#emailContent.mailingAddressFooter#">#emailContent.mailingAddressFooter#</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+
+                    <table style="margin:auto;">
+
+                    <!-- Start : Disclaimer -->
+                    <tr>
+                        <td align="center" style="border-width:1px;border-style: solid;border-color:##cccccc;padding:10px 20px 10px 20px;font-size:10px;color:##838383;line-height:14px;">
+                            Paid for by the Republican National Committee
+                            <br/>
+                            Not authorized by any candidate or candidate's committee.
+                            <br/>
+                            <a href="http://www.gop.com">www.GOP.com</a>
+                        </td>
+                    </tr>
+                    <!-- End : Disclaimer -->
+
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html></cfoutput>
+			    </cfmailpart>
+			</cfmail>

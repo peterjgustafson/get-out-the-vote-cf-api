@@ -1,0 +1,324 @@
+{
+  "form": {
+    "headerText": "Request An Absentee Ballot",
+    "submit": "Next",
+    "submitText": "You are one step away from casting your vote, click next to continue.",
+    "formStep": [
+      {
+        "-id": "1",
+        "headerText": "Let's Get Started",
+        "formSection": {
+          "-id": "1",
+          "fieldset": {
+            "field": [
+              {
+                "-id": "fname",
+                "-type": "string",
+                "-required": "true",
+                "-label": "First Name"
+              },
+              {
+                "-id": "mname",
+                "-type": "string",
+                "-required": "false",
+                "-label": "Middle Name"
+              },
+              {
+                "-id": "lname",
+                "-type": "string",
+                "-required": "true",
+                "-label": "Last Name",
+                "-width": "2X"
+              },
+              {
+                "-id": "sfx",
+                "-type": "string",
+                "-required": "false",
+                "-label": "Suffix",
+                "-width": "1X"
+              },
+              {
+                "-id": "email",
+                "-type": "email",
+                "-required": "true",
+                "-label": "Email Address",
+                "-width": "2X"
+              },
+              {
+                "-id": "step1zip",
+                "-type": "numeric",
+                "-required": "true",
+                "-label": "ZIP Code",
+                "-maxLength": "5",
+                "-minLength": "5",
+                "-width": "1X",
+                "mask": "00000"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "2",
+        "-hidden": "true",
+        "-type": "confirm",
+        "headerText": "Confirm Information",
+        "headerText": "Home Address",
+        "source": "voterDB",
+        "pre": "Is the following information correct?",
+        "post": "By clicking correct, I confirm that the above information is complete and accurate.",
+        "confirmText": "Correct",
+        "editText": "Incorrect",
+        "formSection": {
+          "-id": "1",
+          "fieldset": {
+            "field": [
+              {
+                "-id": "raddr1",
+                "-type": "string",
+                "-required": "true",
+                "-label": "Street",
+                "-width": "full"
+              },
+              {
+                "-id": "raddr2",
+                "-type": "string",
+                "-required": "false",
+                "-label": "Street2",
+                "-width": "full"
+              },
+              {
+                "-id":"cityType",
+                "-type":"list",
+                "-width":"1X",
+                "-required":"true",
+                "-label": "City or Township?",
+                "listItems":{
+                  "listItem":[
+                    {
+                      "-value":"Township"
+                    },
+                    {
+                      "-value":"City"
+                    }
+                  ]
+                }
+              },
+              {
+                "-id": "city",
+                "-type": "string",
+                "-required": "true",
+                "-label": "City/Township",
+                "-width": "2X"
+              },
+              {
+                "-id": "cust_precinct",
+                "-type": "string",
+                "-required": "false",
+                "-label": "Precinct",
+                "-width": "2X"
+              },
+              {
+                "-id": "rzip5",
+                "-type": "numeric",
+                "-required": "true",
+                "-label": "ZIP Code",
+                "-maxLength": "5",
+                "-minLength": "5",
+                "-width": "1X",
+                "mask": "00000"
+              },
+              {
+                "-id": "cust_county",
+                "-type": "string",
+                "-required": "true",
+                "-width": "2X",
+                "-label": "County"
+              },
+              {
+                "-id": "cust_dob",
+                "-type": "date",
+                "-required": "true",
+                "-width": "1X",
+                "-label": "Date of Birth"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "3",
+        "-hidden": "true",
+        "headerText": "Voter Information",
+        "formSection": [
+          {
+            "-id": "1",
+            "fieldset": {
+                "field": [
+                  {
+                    "-id":"cust_telephone_full",
+                    "-type":"phone",
+                    "-required":"true",
+                    "-label":"Phone Number"
+                  },
+                  {
+                    "-id": "useMailingAddress",
+                    "-type": "checkbox",
+                    "-label": "My mailing address is different than my registration address",
+                    "-triggers": {
+                      "2": "toggle"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "-id": "2",
+              "-hidden": "true",
+              "headerText": "Mailing Address",
+              "fieldset": {
+                  "field": [
+                    {
+                      "-id": "maddr1",
+                      "-type": "string",
+                      "-required": "true",
+                      "-label": "Street",
+                      "-width": "full"
+                    },
+                    {
+                      "-id": "maddr2",
+                      "-type": "string",
+                      "-required": "false",
+                      "-label": "Street 2",
+                      "-width": "full"
+                    },
+                    {
+                      "-id": "mcity",
+                      "-type": "string",
+                      "-required": "true",
+                      "-label": "City"
+                    },
+                    {
+                      "-id": "msta",
+                      "-type": "list",
+                      "-required": "true",
+                      "-label": "State",
+                      "-maxLength": "2",
+                      "-minLength": "2",
+                      "-width": "1X",
+                      "listItems": {
+                        "listItem": [
+                          { "-value": "AL" },
+                          { "-value": "AK" },
+                          { "-value": "AZ" },
+                          { "-value": "AR" },
+                          { "-value": "CA" },
+                          { "-value": "CO" },
+                          { "-value": "CT" },
+                          { "-value": "DE" },
+                          { "-value": "DC" },
+                          { "-value": "FL" },
+                          { "-value": "GA" },
+                          { "-value": "HI" },
+                          { "-value": "ID" },
+                          { "-value": "IL" },
+                          { "-value": "IN" },
+                          { "-value": "IA" },
+                          { "-value": "KS" },
+                          { "-value": "KY" },
+                          { "-value": "LA" },
+                          { "-value": "ME" },
+                          { "-value": "MD" },
+                          { "-value": "MA" },
+                          { "-value": "MI" },
+                          { "-value": "MN" },
+                          { "-value": "MS" },
+                          { "-value": "MO" },
+                          { "-value": "MT" },
+                          { "-value": "NE" },
+                          { "-value": "NV" },
+                          { "-value": "NH" },
+                          { "-value": "NJ" },
+                          { "-value": "NM" },
+                          { "-value": "NY" },
+                          { "-value": "NC" },
+                          { "-value": "ND" },
+                          { "-value": "OH" },
+                          { "-value": "OK" },
+                          { "-value": "OR" },
+                          { "-value": "PA" },
+                          { "-value": "RI" },
+                          { "-value": "SC" },
+                          { "-value": "SD" },
+                          { "-value": "TN" },
+                          { "-value": "TX" },
+                          { "-value": "UT" },
+                          { "-value": "VT" },
+                          { "-value": "VA" },
+                          { "-value": "WA" },
+                          { "-value": "WV" },
+                          { "-value": "WI" },
+                          { "-value": "WY" }
+                        ]
+                      }
+                    },
+                    {
+                      "-id": "mzip5",
+                      "-type": "numeric",
+                      "-required": "true",
+                      "-label": "ZIP Code",
+                      "-maxLength": "5",
+                      "-minLength": "5",
+                      "-width": "1X",
+                      "mask": "00000"
+                    }
+                  ]
+                }
+              },
+              {
+                "-id": "3",
+                "fieldset":{
+                  "field":[
+                    {
+                      "-id": "cust_reason",
+                      "-type": "list",
+                      "-required": "true",
+                      "-width":"full",
+                      "-label":"The statutory grounds on which I base my request are",
+                      "listItems": {
+                        "listItem": [
+                          {
+                            "-value":"cust_reason_absent",
+                            "#Text":"I expect to be absent from the community in which I am registered for the entire time the polls are open on election day."
+                          },
+                          {
+                            "-value":"cust_reason_disable",
+                            "#Text":"I am physically unable to attend the polls without the assistance of another."
+                          },
+                          {
+                            "-value":"cust_reason_religion",
+                            "#Text":"I cannot attend the polls because of the tenets of my religion."
+                          },
+                          {
+                            "-value":"cust_reason_official",
+                            "#Text":"I have been appointed an election precinct inspector in a precinct other than the precinct where I reside."
+                          },
+                          {
+                            "-value":"cust_reason_over_60",
+                            "#Text":"I am 60 years of age or older."
+                          },
+                          {
+                            "-value":"cust_reason_confined",
+                            "#Text":"I cannot attend the polls because I am confined to jail awaiting arraignment or trial."
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+      }
+    ]
+  }
+}

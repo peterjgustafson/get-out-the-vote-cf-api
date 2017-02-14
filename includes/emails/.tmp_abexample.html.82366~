@@ -1,0 +1,16 @@
+<p>{firstName},</p>
+
+<p>Thank you for requesting your absentee ballot!</p>
+					
+<p>Please make sure that after you print this application you:
+{bullets}
+</p>
+					
+<p>{mailingAddress}</p>
+					
+<p>The application must be received by {abDeadline} to apply to vote by mail for the {electionDate} Election.</p>
+					
+<p>With all that's at stake, your support will make a difference in this election. Encourage your family and friends to request their absentee ballot at {linkToForm}.</p>
+					
+<p>{closingSalutation}
+{signature}</p>

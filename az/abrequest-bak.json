@@ -1,0 +1,532 @@
+{
+  "form": {
+    "headerText": "Request and Absentee Ballot",
+    "submit": "Next",
+    "submitText": "You are one step away from casting your vote, click next to continue.",
+    "formStep": [
+      {
+        "-id": "1",
+        "headerText": "Let's Get Started",
+        "formSection": {
+          "-id": "1",
+          "fieldset": {
+            "field": [
+              {
+                "-id": "fname",
+                "-type": "string",
+                "-required": "true",
+                "-label": "First Name"
+              },
+              {
+                "-id": "mname",
+                "-type": "string",
+                "-required": "false",
+                "-label": "Middle Name"
+              },
+              {
+                "-id": "lname",
+                "-type": "string",
+                "-required": "true",
+                "-label": "Last Name",
+                "-width": "2X"
+              },
+              {
+                "-id": "sfx",
+                "-type": "string",
+                "-required": "false",
+                "-label": "Suffix",
+                "-width": "1X"
+              },
+              {
+                "-id": "email",
+                "-type": "string",
+                "-required": "true",
+                "-label": "Email Address",
+                "-width": "2X"
+              },
+              {
+                "-id": "step1zip",
+                "-type": "numeric",
+                "-required": "true",
+                "-label": "Zip Code",
+                "-maxLength": "5",
+                "-minLength": "5",
+                "-width": "1X",
+                "mask": "00000"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "2",
+        "-hidden": "true",
+        "-type": "confirm",
+        "headerText": "Confirm Information",
+        "headerText": "Home Address",
+        "source": "voterDB",
+        "pre": "Is the following information correct?",
+        "post": "By clicking correct, I confirm that the above information is complete and accurate.",
+        "confirmText": "Correct",
+        "editText": "Incorrect",
+        "formSection": {
+          "-id": "1",
+          "fieldset": {
+            "field": [
+              {
+                "-id": "municipalityType",
+                "-type": "list",
+                "-required": "true",
+                "-label": "Municipality Type",
+                "listItems": {
+                  "listItem": [
+                    {
+                      "-value": "town",
+                      "#Text": "Town"
+                    },
+                    {
+                      "-value": "village",
+                      "#Text": "Village"
+                    },
+                    {
+                      "-value": "city",
+                      "#Text": "City"
+                    }
+                  ]
+                }
+              },
+              {
+                "-id": "cust_town",
+                "-type": "string",
+                "-required": "true",
+                "-label": "Municipality"
+              },
+              {
+                "-id": "cust_county",
+                "-type": "string",
+                "-required": "true",
+                "-label": "County"
+              },
+              {
+                "-id": "cust_dob",
+                "-type": "date",
+                "-required": "true",
+                "-label": "Date of Birth"
+              },
+              {
+                "-id": "tel_num",
+                "-type": "phone",
+                "-required": "true",
+                "-label": "Phone"
+              },
+              {
+                "-id": "cust_fax",
+                "-type": "phone",
+                "-required": "false",
+                "-label": "Fax"
+              },
+              {
+                "-id": "raddr1",
+                "-type": "string",
+                "-required": "true",
+                "-label": "Street",
+                "-width": "full"
+              },
+              {
+                "-id": "raddr2",
+                "-type": "string",
+                "-required": "false",
+                "-label": "Street2",
+                "-width": "full"
+              },
+              {
+                "-id": "city",
+                "-type": "string",
+                "-required": "true",
+                "-label": "City"
+              },
+              {
+                "-id": "rzip5",
+                "-type": "numeric",
+                "-required": "true",
+                "-label": "Zip Code",
+                "-maxLength": "5",
+                "-minLength": "5",
+                "-width": "1X",
+                "mask": "00000"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "-id": "3",
+        "-hidden": "true",
+        "headerText": "Voter Information",
+        "formSection": [
+          {
+            "-id": "1",
+            "fieldset": {
+              "field": [
+                {
+                  "-id": "cust_military_overseas",
+                  "-type": "list",
+                  "-required": "true",
+                  "-label": "Are you Military, Permanent Overseas Elector, or None?",
+                  "-width": "full",
+                  "listItems": {
+                    "listItem": [
+                      {
+                        "-value": "none",
+                        "#Text": "None",
+                        "-triggers": {
+                          "2": "hide",
+                          "3": "show"
+                        }
+                      },
+                      {
+                        "-value": "cust_military_check",
+                        "#Text": "Military",
+                        "-triggers": {
+                          "2": "show",
+                          "3": "hide"
+                        }
+                      },
+                      {
+                        "-value": "cust_overseas_check",
+                        "#Text": "Permanent Overseas",
+                        "-triggers": {
+                          "2": "show",
+                          "3": "hide"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "-id": "2",
+            "-hidden": "true",
+            "fieldset": {
+              "field": [
+                {
+                  "-id": "deliverto",
+                  "-type": "list",
+                  "-required": "true",
+                  "-label": "How would you like to recieve your absentee ballot by?",
+                  "-width": "full",
+                  "listItems": {
+                    "listItem": [
+                      {
+                        "-value": "cust_recieve_ballot_by_email",
+                        "#Text": "Email",
+                        "-triggers": {
+                          "4": "hide",
+                          "5": "show"
+                        }
+                      },
+                      {
+                        "-value": "cust_recieve_ballot_by_online",
+                        "#Text": "Online",
+                        "-triggers": {
+                          "4": "hide",
+                          "5": "show"
+                        }
+                      },
+                      {
+                        "-value": "cust_recieve_ballot_by_fax",
+                        "#Text": "Fax",
+                        "-triggers": {
+                          "4": "show",
+                          "5": "hide"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "-id": "3",
+            "-hidden": "true",
+            "fieldset": {
+              "field": [
+                {
+                  "-id": "deliverto",
+                  "-type": "list",
+                  "-required": "true",
+                  "-label": "How would you like to recieve your absentee ballot by?",
+                  "listItems": {
+                    "listItem": [
+                      {
+                        "-value": "cust_recieve_ballot_by_mail",
+                        "#Text": "Mail",
+                        "-triggers": {
+                          "7": "show"
+                        }
+                      },
+                      {
+                        "-value": "cust_recieve_ballot_by_in_person_check",
+                        "#Text": "Clerk's Office",
+                        "-triggers": {
+                          "7": "show"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "-id": "useMailingAddress",
+                  "-type": "checkbox",
+                  "-label": "My mailing address and home address are different",
+                  "-triggers": {
+                    "6": "toggle"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "-id": "4",
+            "-hidden": "true",
+            "fieldset": {
+              "field": [
+                {
+                  "-id": "cust_fax_pref",
+                  "-type": "phone",
+                  "-required": "true",
+                  "-label": "Fax Number",
+                  "-triggers": {
+                    "7": "toggle"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "-id": "5",
+            "-hidden": "true",
+            "fieldset": {
+              "field": [
+                {
+                  "-id": "cust_email_pref",
+                  "-type": "email",
+                  "-required": "true",
+                  "-label": "Email",
+                  "-triggers": {
+                    "7": "toggle"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "-id": "6",
+            "-hidden": "true",
+            "fieldset": {
+              "field": [
+                {
+                  "-id": "maddr1",
+                  "-type": "string",
+                  "-required": "true",
+                  "-label": "Street",
+                  "-width": "full"
+                },
+                {
+                  "-id": "maddr2",
+                  "-type": "string",
+                  "-label": "Street2",
+                  "-width": "full"
+                },
+                {
+                  "-id": "mcity",
+                  "-type": "string",
+                  "-required": "true",
+                  "-label": "City"
+                },
+                {
+                  "-id": "msta",
+                  "-type": "string",
+                  "-required": "true",
+                  "-maxLength": "2",
+                  "-minLength": "2",
+                  "-width": "1X",
+                  "-label": "State"
+                },
+                {
+                  "-id": "mzip5",
+                  "-type": "numeric",
+                  "-required": "true",
+                  "-label": "Zip Code",
+                  "-maxLength": "5",
+                  "-minLength": "5",
+                  "-width": "1X",
+                  "mask": "00000"
+                },
+                {
+                  "-id": "cust_nursing_home",
+                  "-type": "string",
+                  "-required": "false",
+                  "-label": "Nursing Home Name"
+                },
+                {
+                  "-id": "cust_c_o",
+                  "-type": "string",
+                  "-required": "false",
+                  "-label": "C/O"
+                }
+              ]
+            }
+          },
+          {
+            "-id": "7",
+            "-hidden": "true",
+            "fieldset": {
+              "field": [
+                {
+                  "-id": "confirm",
+                  "-type": "confirm",
+                  "sections": [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6"
+                  ],
+                  "-label": "Is this infromation correct?",
+                  "#text": "Continue",
+                  "-triggers": {
+                    "8": "toggle"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "-id": "8",
+            "-hidden": "true",
+            "headerText": "I request and absentee ballot be sent to me for:",
+            "fieldset": {
+              "field": [
+                {
+                  "-id": "cust_email_pref",
+                  "-type": "radio",
+                  "listItems": {
+                    "listItem": [
+                      {
+                        "-value": "cust_ballot_request_for_current_year_check",
+                        "#Text": "All elections from today's date through the end of the current calendar year (ending 12/31).",
+                        "-triggers": {
+                          "9": "hide",
+                          "10": "show"
+                        }
+                      },
+                      {
+                        "-value": "cust_ballot_request_for_all_check",
+                        "#Text": "Every election subsequent to today's date. I further certify and I am indefinitely confined because of age, illness, infirmity, or disability and request absentee ballots be sent to me until I am no longer confined or fail to return a ballot.",
+                        "-triggers": {
+                          "9": "hide",
+                          "10": "show"
+                        }
+                      },
+                      {
+                        "-value": "cust_ballot_request_for_date_check",
+                        "#Text": "Election(s) on the following date(s):",
+                        "-triggers": {
+                          "9": "show",
+                          "10": "hide"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "-id": "9",
+            "-hidden": "true",
+            "fieldset": {
+              "field": [
+                {
+                  "-id": "cust_election_dates",
+                  "-type": "string",
+                  "required": "true",
+                  "-triggers": {
+                    "10": "toggle"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "-id": "10",
+            "-hidden": "true",
+            "fieldset": {
+              "field": [
+                {
+                  "-id": "cust_hospitalized_check",
+                  "-type": "radio_yes_no",
+                  "-label": "Are you temporarily hospitalized?",
+                  "-note": "I certify that I cannot appear at the polling place on election day because I am hospitalized, and appoint the following person to serve as my agent, pursuant to Wis. Stat. § 6.86(3). Remember your agent needs to sign this form before you return this form to your municipal clerk when completed.",
+                  "listItems": {
+                    "listItem": [
+                      {
+                        "-value": "yes",
+                        "-triggers": {
+                            "11": "show"
+                        }
+                      },
+                      {
+                        "-value": "no",
+                        "-triggers": {
+                          "11": "hide"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "-id": "11",
+            "-hidden": "true",
+            "fieldset": {
+              "field": [
+                {
+                  "-id": "cust_agent_fname",
+                  "-type": "string",
+                  "-required": "true",
+                  "-label": "Agent First Name"
+                },
+                {
+                  "-id": "cust_agent_mname",
+                  "-type": "string",
+                  "-required": "false",
+                  "-label": "Agent Middle Name"
+                },
+                {
+                  "-id": "cust_agent_lname",
+                  "-type": "string",
+                  "-required": "true",
+                  "-label": "Agent Last Name"
+                },
+                {
+                  "-id": "cust_agent_address",
+                  "-type": "string",
+                  "-required": "true",
+                  "-label": "Agent Address"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+    "form": {
+        "headerText": "Request An Absentee Ballot",
+        "submit": "Next",
+        "submitText": "You are one step away from casting your vote, click next to continue.",
+        "formStep": [
+        {
+            "-id": "1",
+            "headerText": "Let's Get Started",
+            "formSection": {
+            "-id": "1",
+              "fieldset": {
+                    "field": [
+                          {
+                            "-id": "fname",
+                            "-type": "string",
+                            "-required": "true",
+                            "-label": "First Name"
+                          },
+                          {
+                            "-id": "mname",
+                            "-type": "string",
+                            "-required": "false",
+                            "-label": "Middle Name"
+                          },
+                          {
+                            "-id": "lname",
+                            "-type": "string",
+                            "-required": "true",
+                            "-label": "Last Name",
+                            "-width": "2X"
+                          },
+                          {
+                            "-id": "sfx",
+                            "-type": "string",
+                            "-required": "false",
+                            "-label": "Suffix",
+                            "-width": "1X"
+                          },
+                          {
+                            "-id": "email",
+                            "-type": "email",
+                            "-required": "true",
+                            "-label": "Email Address",
+                            "-width": "2X"
+                          },
+                          {
+                            "-id": "step1zip",
+                            "-type": "numeric",
+                            "-required": "true",
+                            "-label": "ZIP Code",
+                            "-maxLength": "5",
+                            "-minLength": "5",
+                            "-width": "1X",
+                            "mask": "00000"
+                          }
+                    ]
+              }
+        }
+      }
+        ]
+    }
+}
